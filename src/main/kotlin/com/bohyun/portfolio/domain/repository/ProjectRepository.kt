@@ -1,6 +1,7 @@
 package com.bohyun.portfolio.domain.repository
 
+import com.bohyun.portfolio.domain.entity.Project
 import org.springframework.data.jpa.repository.JpaRepository
 
-interface Project: JpaRepository<Project, Long> {
+interface ProjectRepository: JpaRepository<Project, Long> {
 }
