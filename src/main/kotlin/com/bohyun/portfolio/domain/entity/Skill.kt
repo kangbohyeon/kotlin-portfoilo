@@ -10,7 +10,7 @@ class Skill(name: String, type: String, isActive: Boolean) : BaseEntity() {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "skill_id")
     var id: Long? = null
-    var name: String? = name
+    var name: String = name
 
     @Column(name = "skill_type")
     @Enumerated(value = EnumType.STRING)

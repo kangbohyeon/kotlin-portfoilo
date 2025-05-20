@@ -1,4 +1,7 @@
 package com.bohyun.portfolio.presentation.dto
 
-class IntroductionDTO {
+data class IntroductionDTO(
+    val content: String
+) {
+    constructor(introduction: IntroductionDTO) : this(introduction.content)
 }
