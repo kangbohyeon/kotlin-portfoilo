@@ -14,7 +14,7 @@ class ResumeDTO(
         ExperienceDTO(
             title = it.title,
             description = it.description,
-            startYearMonth = "${it.startYear}.${it.endYear}",
+            startYearMonth = "${it.startYear}.${it.startMonth}",
             endYearMonth = it.getEndYearMonth(),
             details = it.details.filter { it.isActive }.map { it.content }
         )

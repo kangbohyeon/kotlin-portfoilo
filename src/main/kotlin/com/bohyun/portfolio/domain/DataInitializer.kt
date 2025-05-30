@@ -24,18 +24,19 @@ class DataInitializer(
         println("스프링이 실행되었습니다. 테스트 데이터를 초기화합니다.")
 
         val achievements = mutableListOf<Achievement>(
-            Achievement(
-                title = "2022 catkao 해커톤 최우수상",
-                description = "고양이 쇼핑몰 검색 서비스의 아키텍처",
-                host = "캣카오",
-                achievedDate = LocalDate.of(2022, 8, 1),
-                isActive = true
-            ),
+
             Achievement(
                 title = "정보처리기사",
                 description = "자료구조, 운영체제, 알고리즘, 데이터베이스 등",
                 host = "한국산업인력공단",
-                achievedDate = LocalDate.of(2020, 2, 1),
+                achievedDate = LocalDate.of(2022, 6, 17),
+                isActive = true
+            ),
+            Achievement(
+                title = "SQLD",
+                description = "데이터베이스, SQL 등",
+                host = "한국데이터산업진흥원",
+                achievedDate = LocalDate.of(2021, 12, 17),
                 isActive = true
             )
         )
@@ -55,51 +56,63 @@ class DataInitializer(
         linkRepository.saveAll(links)
 
         val experience1 = Experience(
-            title = "캣홀릭대학교",
-            description = "컴퓨터공학 전공",
+            title = "세종대학교",
+            description = "수학통계학부 수학과",
             startYear = 2017,
-            endYear = 2022,
             startMonth = 3,
+            endYear = 2022,
             endMonth = 2,
             isActive = true
         )
 
         experience1.addDetails(
             mutableListOf(
-                ExperienceDetail(content = "GPA 4.3/4.5", isActive = true),
-                ExperienceDetail(content = "소프트웨어 연구 학회 활동", isActive = true)
+                ExperienceDetail(content = "GPA 3.0/4.5", isActive = true),
             )
         )
 
         val experience2 = Experience(
-            title = "캣카오",
-            description = "소셜서비스팀 백엔드 개발자",
+            title = "세종텔레콤",
+            description = "보이스기술팀 백엔드 개발자",
             startYear = 2022,
             endYear = null,
-            startMonth = 9,
+            startMonth = 11,
             endMonth = null,
             isActive = true
         )
 
         experience2.addDetails(
             mutableListOf(
-                ExperienceDetail(content = "유기묘 위치 공유 서비스 개발", isActive = true),
-                ExperienceDetail(content = "신입 교육 프로그램 우수상 수상", isActive = true)
+                ExperienceDetail(content = "성능 최적화와 안정성을 위한 시스템 개선 프로젝트", isActive = true),
+                ExperienceDetail(content = "통화 시스템 개선 프로젝트", isActive = true)
             )
         )
 
-        experienceRepository.saveAll(mutableListOf(experience1, experience2));
+        experienceRepository.saveAll(mutableListOf(experience2, experience1));
 
         val java = Skill(name = "Java", type = SkillType.LANGUAGE.name, isActive = true)
         val kotlin = Skill(name = "Kotlin", type = SkillType.LANGUAGE.name, isActive = true)
-        val python = Skill(name = "Python", type = SkillType.LANGUAGE.name, isActive = true)
+        val javaScript = Skill(name = "Java Script", type = SkillType.LANGUAGE.name, isActive = true)
         val spring = Skill(name = "Spring", type = SkillType.FRAMEWORK.name, isActive = true)
-        val django = Skill(name = "Django", type = SkillType.FRAMEWORK.name, isActive = true)
+        val oracle = Skill(name = "Oracle", type = SkillType.DATABASE.name, isActive = true)
         val mysql = Skill(name = "Mysql", type = SkillType.DATABASE.name, isActive = true)
         val redis = Skill(name = "Redis", type = SkillType.DATABASE.name, isActive = true)
-        val kafka = Skill(name = "Kafka", type = SkillType.TOOL.name, isActive = true)
+        val grafana = Skill(name = "Grafana", type = SkillType.TOOL.name, isActive = true)
+        val prometheus = Skill(name = "Prometheus", type = SkillType.TOOL.name, isActive = true)
 
-        skillRepository.saveAll(mutableListOf(java,kotlin,python,spring,django,mysql,redis,kafka))
+        skillRepository.saveAll(
+            mutableListOf(
+                java,
+                kotlin,
+                javaScript,
+                spring,
+                oracle,
+                mysql,
+                redis,
+                grafana,
+                prometheus
+            )
+        )
 
         val project1 = Project(
             name = "유기묘 발견 정보 공유 서비스",
@@ -110,15 +123,19 @@ class DataInitializer(
             endMonth = 2,
             isActive = true
         )
-        project1.addDetails(mutableListOf(
-            ProjectDetail(content="구글 맴스를 활용한 유기묘 발견 지역 정보 제공 API 개발",url = null, isActive = true),
-            ProjectDetail(content="redis 적용하여 인기 게시글의 조회 속도 1.5초 -> 0.5초로 개선",url = null, isActive = true)
-        ))
+        project1.addDetails(
+            mutableListOf(
+                ProjectDetail(content = "구글 맴스를 활용한 유기묘 발견 지역 정보 제공 API 개발", url = null, isActive = true),
+                ProjectDetail(content = "redis 적용하여 인기 게시글의 조회 속도 1.5초 -> 0.5초로 개선", url = null, isActive = true)
+            )
+        )
         project1.skills.addAll(
-            mutableListOf( ProjectSkill(project = project1, skill = java),
+            mutableListOf(
+                ProjectSkill(project = project1, skill = java),
                 ProjectSkill(project = project1, skill = spring),
                 ProjectSkill(project = project1, skill = mysql),
-                ProjectSkill(project = project1, skill = redis),)
+                ProjectSkill(project = project1, skill = redis),
+            )
         )
         projectRepository.save(project1);
     }
