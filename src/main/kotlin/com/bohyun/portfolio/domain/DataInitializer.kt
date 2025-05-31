@@ -115,18 +115,18 @@ class DataInitializer(
         )
 
         val project1 = Project(
-            name = "유기묘 발견 정보 공유 서비스",
+            name = "상담 매칭 서비스",
             description = "",
-            startYear = 2017,
-            startMonth = 3,
-            endYear = 2022,
-            endMonth = 2,
+            startYear = 2024,
+            startMonth = 6,
+            endYear = 2025,
+            endMonth = 5,
             isActive = true
         )
         project1.addDetails(
             mutableListOf(
-                ProjectDetail(content = "구글 맴스를 활용한 유기묘 발견 지역 정보 제공 API 개발", url = null, isActive = true),
-                ProjectDetail(content = "redis 적용하여 인기 게시글의 조회 속도 1.5초 -> 0.5초로 개선", url = null, isActive = true)
+                ProjectDetail(content = "Redis 를 토큰 저장소로 활용한 인증/인가 관리 시스템 구현", url = null, isActive = true),
+                ProjectDetail(content = "Spring Boot Security 사용으로 인한 보안 강화", url = null, isActive = true)
             )
         )
         project1.skills.addAll(
