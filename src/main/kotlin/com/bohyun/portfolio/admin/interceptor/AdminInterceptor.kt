@@ -23,7 +23,7 @@ class AdminInterceptor : HandlerInterceptor {
                 )
             ),
             MenuDTO(
-                name = "Index",
+                name = "Resume",
                 pages = listOf<PageDTO>(
                     PageDTO(name = "Experience", url = "/admin/experience"),
                     PageDTO(name = "Achievement", url = "/admin/achievement"),
