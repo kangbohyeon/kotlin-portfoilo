@@ -17,6 +17,7 @@ class DataInitializer(
     private val skillRepository: SkillRepository,
     private val projectRepository: ProjectRepository,
     private val experienceRepository: ExperienceRepository,
+    private val accountRepository: AccountRepository,
 ) {
     @PostConstruct
     fun initializeData() {
@@ -138,5 +139,12 @@ class DataInitializer(
             )
         )
         projectRepository.save(project1);
+
+        val account = Account(
+            loginId = "admin1",
+            pw ="\$2a\$10\$ZwTXxWlMgRmW6o8QFWphQO5l8Fd.9uKSamhPoYQoW3KOwh78o4Squ"
+        )
+
+        accountRepository.save(account)
     }
 }

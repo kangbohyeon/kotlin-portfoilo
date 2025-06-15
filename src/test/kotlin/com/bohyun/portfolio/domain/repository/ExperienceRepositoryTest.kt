@@ -8,6 +8,7 @@ import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.TestInstance
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import kotlin.test.Test
 
 @DataJpaTest
@@ -90,6 +91,12 @@ class ExperienceRepositoryTest(
     fun test(){
         val findById = experienceRepository.findById(1)
         println(findById.isPresent)
+    }
+
+    @Test
+    fun test2(){
+        val encode = BCryptPasswordEncoder().encode("dkssudgktpdy")
+        println(encode)
     }
 
 
